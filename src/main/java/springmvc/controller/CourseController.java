@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import springmvc.dao.Des;
 import springmvc.entity.Course;
@@ -70,5 +71,14 @@ public class CourseController {
 			FileUtils.copyInputStreamToFile(file.getInputStream(), f);
 		}
 		return "success";
+	}
+	
+	@Des("modelandviewÄ£Ê½·µ»Ø")
+	@RequestMapping("/mav")
+	public ModelAndView mav(String str) {
+		ModelAndView model = new ModelAndView();
+		System.out.println(str);
+		model.setViewName("mav");
+		return model;
 	}
 }
