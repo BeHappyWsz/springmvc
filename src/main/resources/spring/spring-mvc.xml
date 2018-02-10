@@ -39,4 +39,17 @@
 	 	<property name="resolveLazily" value="true"/>
 	 </bean>
 	 
+	 <!-- 配置拦截器HandlerInteceptor -->
+	 <mvc:interceptors>
+	 	<!-- 可配置多个拦截器，拦截执行顺序见interceptor.jpg
+	 		<bean class="springmvc.interceptor.LoginInterceptor"/> 
+	 		<bean class="springmvc.interceptor.LoginInterceptor2"/> 
+	 		<bean class="springmvc.interceptor.LoginInterceptor3"/> 
+	 	-->
+	 	<!-- 配置拦截规则 -->
+	 	<mvc:interceptor>
+	 		<mvc:mapping path="/test/mav"/><!-- 拦截(必须完整的)路径,/mav无效 -->
+	 		<bean class="springmvc.interceptor.LoginInterceptor"/>
+	 	</mvc:interceptor>
+	 </mvc:interceptors>
 </beans>
